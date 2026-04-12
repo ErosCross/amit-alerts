@@ -4,15 +4,17 @@ const closeBtn = document.getElementById('close-btn');
 const saveSettingsBtn = document.getElementById('save-settings-btn');
 const areaSelect = document.getElementById('selected-area');
 
-const icons = {
-    success: 'fas fa-check-circle',
-    error: 'fas fa-exclamation-circle',
-    warning: 'fas fa-exclamation-triangle',
-    info: 'fas fa-info-circle'
+let alertConfig = {
+    position: 'top-right',
+    types: {}
 };
 
 window.addEventListener('message', function(event) {
-    if (event.data.action === 'showAlert') {
+    if (event.data.action === 'init') {
+        alertConfig.position = event.data.position || 'top-right';
+        alertConfig.types = event.data.alertTypes || {};
+        alertContainer.className = alertConfig.position;
+    } else if (event.data.action === 'showAlert') {
         showAlert(event.data);
     } else if (event.data.action === 'openMenu') {
         populateAreas(event.data.areas, event.data.currentArea);
@@ -81,14 +83,29 @@ saveSettingsBtn.addEventListener('click', () => {
     });
 });
 
+function playSound(file) {
+    const audio = new Audio(`./sounds/${file}`);
+    audio.volume = 0.5;
+    audio.play().catch(e => console.log('Audio play blocked or file missing:', e));
+}
+
 function showAlert(data) {
     const wrapper = document.createElement('div');
     wrapper.className = `alert-wrapper type-${data.type}`;
     
+    // Play custom sound for Alerts
+    if (data.type === 'error') {
+        playSound('alert.mp3');
+    }
+    
+    if (data.type === 'success') {
+        // Success sound is handled by client.lua (native GTA sound)
+    }
+    
     wrapper.innerHTML = `
         <div class="alert-item">
             <div class="alert-icon">
-                <i class="${icons[data.type] || icons.info}"></i>
+                <i class="${data.icon || (alertConfig.types[data.type] && alertConfig.types[data.type].icon) || 'fas fa-info-circle'}"></i>
             </div>
             <div class="alert-content">
                 <div class="alert-title">${data.title}</div>

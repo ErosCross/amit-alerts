@@ -58,6 +58,67 @@ body {
     gap: 15px;
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
     transition: transform 0.3s ease;
+    overflow: hidden;
+}
+
+/* Intense Red Alert Style */
+.type-error .alert-item {
+    background: rgba(180, 10, 10, 0.85); /* Deep Intense Red */
+    border: 2px solid #ff0000;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+    animation: alert-pulse 1.5s infinite ease-in-out, intense-entrance 0.4s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+.type-error .alert-icon {
+    color: #ffffff;
+    font-size: 1.8rem;
+    animation: icon-bounce 1s infinite alternate;
+}
+
+.type-error .progress-bar {
+    background: #ffffff; /* White progress bar for high contrast */
+}
+
+@keyframes alert-pulse {
+    0% { box-shadow: 0 0 10px rgba(255, 0, 0, 0.4); border-color: rgba(255, 0, 0, 0.5); }
+    50% { box-shadow: 0 0 30px rgba(255, 0, 0, 0.8); border-color: rgba(255, 255, 255, 0.8); }
+    100% { box-shadow: 0 0 10px rgba(255, 0, 0, 0.4); border-color: rgba(255, 0, 0, 0.5); }
+}
+
+/* Premium Success (Release) Alert Style */
+.type-success .alert-item {
+    background: rgba(10, 80, 40, 0.85); /* Deep Success Green */
+    border: 2px solid #00ff88;
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
+    animation: success-glow 2s infinite ease-in-out;
+}
+
+.type-success .alert-icon {
+    color: #ffffff;
+    background: rgba(0, 255, 136, 0.2);
+    border: 1px solid rgba(0, 255, 136, 0.3);
+}
+
+.type-success .progress-bar {
+    background: #ffffff;
+}
+
+@keyframes success-glow {
+    0% { box-shadow: 0 0 10px rgba(0, 255, 136, 0.2); border-color: rgba(0, 255, 136, 0.4); }
+    50% { box-shadow: 0 0 25px rgba(0, 255, 136, 0.6); border-color: rgba(255, 255, 255, 0.6); }
+    100% { box-shadow: 0 0 10px rgba(0, 255, 136, 0.2); border-color: rgba(0, 255, 136, 0.4); }
+}
+
+@keyframes intense-entrance {
+    0% { transform: translateX(100%) scale(0.8); opacity: 0; }
+    50% { transform: translateX(-10px) scale(1.05); }
+    70% { transform: translateX(5px) scale(0.98); }
+    100% { transform: translateX(0) scale(1); opacity: 1; }
+}
+
+@keyframes icon-bounce {
+    from { transform: scale(1); }
+    to { transform: scale(1.2); }
 }
 
 .alert-icon {

@@ -2,7 +2,7 @@ Config = {}
 
 Config.DefaultDuration = 5000 -- ms
 Config.DefaultTitle = "ALERT"
-Config.Position = "top-left" -- top-right, top-left, bottom-right, bottom-left
+Config.Position = "top-right" -- top-right, top-left, bottom-right, bottom-left
 
 Config.AlertTypes = {
     ['success'] = {
@@ -24,23 +24,22 @@ Config.AlertTypes = {
 }
 
 Config.Oref = {
-    Url = "https://www.oref.org.il/WarningMessages/alert/alerts.json",
-    HistoryUrl = "https://www.oref.org.il/WarningMessages/History/AlertsHistory.json",
-    Interval = 2000, -- Polling interval in ms
+    Url = "https://www.oref.org.il/warningMessages/alert/Alerts.json",
+    HistoryUrl = "https://www.oref.org.il/WarningMessages/alert/History/AlertsHistory.json",
+    Interval = 1000, -- Polling interval in ms
     Icons = {
-        [1] = "fas fa-rocket",
-        [2] = "fas fa-home",
-        [3] = "fas fa-earth-americas",
-        [4] = "fas fa-radiation",
-        [5] = "fas fa-water",
-        [6] = "fas fa-fighter-jet",
-        [7] = "fas fa-skull-crossbones",
-        [8] = "fas fa-exclamation-circle",
-        [9] = "fas fa-exclamation-circle",
-        [10] = "fas fa-exclamation-circle",
-        [11] = "fas fa-exclamation-circle",
-        [12] = "fas fa-exclamation-circle",
-        [13] = "fas fa-running",
+        [1] = "fas fa-rocket",              -- ירי טילים
+        [2] = "fas fa-exclamation-circle",   -- כללי
+        [3] = "fas fa-house-damage",         -- רעידת אדמה
+        [4] = "fas fa-biohazard",            -- אירוע חומרים מסוכנים
+        [5] = "fas fa-water",                -- צונאמי
+        [6] = "fas fa-plane",                -- חדירת כלי טיס עוין
+        [7] = "fas fa-user-secret",          -- חדירת מחבלים
+        [8] = "fas fa-bullhorn",             -- הודעה כללית
+        [10] = "fas fa-check-circle",        -- סיום אירוע (ירוק)
+        [11] = "fas fa-fire-extinguisher",   -- אירוע שריפה
+        [12] = "fas fa-snowflake",           -- אירוע מזג אוויר
+        [13] = "fas fa-walking",             -- פינוי אוכלוסייה
     }
 }
 
