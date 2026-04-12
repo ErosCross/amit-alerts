@@ -1,5 +1,7 @@
 Config = {}
 
+Config.Debug = false -- debugging mode, dont change!
+
 Config.DefaultDuration = 5000 -- ms
 Config.DefaultTitle = "ALERT"
 Config.Position = "top-right" -- top-right, top-left, bottom-right, bottom-left

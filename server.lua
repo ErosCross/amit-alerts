@@ -1,5 +1,11 @@
 local lastAlertHash = ""
-print("^2[Amit-Alerts] Server script loaded and starting...^7")
+local function DebugPrint(msg)
+    if Config.Debug then
+        print(msg)
+    end
+end
+
+DebugPrint("^2[Amit-Alerts] Server script loaded and starting...^7")
 
 -- Function to standardize strings (remove spaces, hyphens, etc.)
 local function standardize(str)
@@ -46,7 +52,7 @@ function checkOrefAlerts()
 
             local data = json.decode(cleanResp)
             if not data then 
-                print("^1[Amit-Alerts] JSON Decode Failed! Raw string:^7 " .. cleanResp:sub(1, 100))
+                DebugPrint("^1[Amit-Alerts] JSON Decode Failed! Raw string:^7 " .. cleanResp:sub(1, 100))
                 return 
             end
 
@@ -121,7 +127,7 @@ end
 
 -- Polling Loop
 Citizen.CreateThread(function()
-    print("^2[Amit-Alerts] Polling loop started...^7")
+    DebugPrint("^2[Amit-Alerts] Polling loop started...^7")
     while true do
         checkOrefAlerts()
         Citizen.Wait(Config.Oref.Interval)

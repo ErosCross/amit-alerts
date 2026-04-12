@@ -64,21 +64,23 @@ RegisterNetEvent('amit-alerts:client:OrefAlert', function(data)
 end)
 
 -- Test command
-RegisterCommand('testalert', function(source, args, rawCommand)
-    local testType = args[1] == "green" and "success" or "error"
-    local testTitle = testType == "success" and "בדיקת שחרור" or "התרעת בדיקה"
-    local testMsg = testType == "success" and "זוהי בדיקה של הודעת סיום אירוע (ירוק)." or "זוהי התרעת ניסיון של מערכת Amit-Alerts (אדום)."
+if Config.Debug then
+    RegisterCommand('testalert', function(source, args, rawCommand)
+        local testType = args[1] == "green" and "success" or "error"
+        local testTitle = testType == "success" and "בדיקת שחרור" or "התרעת בדיקה"
+        local testMsg = testType == "success" and "זוהי בדיקה של הודעת סיום אירוע (ירוק)." or "זוהי התרעת ניסיון של מערכת Amit-Alerts (אדום)."
 
-    TriggerEvent('amit-alerts:client:OrefAlert', {
-        title = testTitle,
-        message = testMsg,
-        areas = {"all"},
-        areasText = "כל הארץ",
-        type = testType,
-        icon = testType == "success" and "fas fa-check-circle" or "fas fa-rocket",
-        duration = 10000
-    })
-end, false)
+        TriggerEvent('amit-alerts:client:OrefAlert', {
+            title = testTitle,
+            message = testMsg,
+            areas = {"all"},
+            areasText = "כל הארץ",
+            type = testType,
+            icon = testType == "success" and "fas fa-check-circle" or "fas fa-rocket",
+            duration = 10000
+        })
+    end, false)
+end
 
 -- Menu Command
 RegisterCommand('alerts', function()
