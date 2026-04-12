@@ -14,6 +14,29 @@
     <div id="alert-container" class="top-right">
         <!-- Alerts will be injected here -->
     </div>
+    <div id="menu-wrapper" style="display: none;">
+        <div id="menu-container">
+            <div class="menu-header">
+                <h2><i class="fas fa-bell"></i> Amit Alerts</h2>
+                <button id="close-btn"><i class="fas fa-times"></i></button>
+            </div>
+            
+            <div class="menu-body">
+                <div class="input-group">
+                    <label>אזור התרעה מועדף</label>
+                    <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 5px;">בחר את האזור עבורו תרצה לקבל התרעות בזמן אמת</p>
+                    <select id="selected-area">
+                        <option value="all">כל האזורים (מומלץ)</option>
+                        <!-- Other areas will be injected by JS -->
+                    </select>
+                </div>
+                
+                <button id="save-settings-btn" class="primary-btn">
+                    <i class="fas fa-save"></i> שמור הגדרות
+                </button>
+            </div>
+        </div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
