@@ -1,4 +1,4 @@
-# 📢 Amit Alerts System - Home Front Command for FiveM
+# 📢 Amit Alerts System - Pikud Ha Oref alerts for FiveM
 
 מערכת התראות בזמן אמת המבוססת על נתוני פיקוד העורף, המותאמת לשרתי FiveM. הסקריפט מאפשר לשחקנים להגדיר אזורי התרעה מותאמים אישית ולקבל עדכונים חיים בתוך השרת.
 
